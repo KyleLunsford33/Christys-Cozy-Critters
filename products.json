@@ -1,11 +1,29 @@
 {
   "categories": [
-    { "id": "all", "label": "All" },
-    { "id": "animals", "label": "Knitted Animals" },
-    { "id": "minis", "label": "Itty Bitty Gang" },
-    { "id": "stockings", "label": "Christmas Stockings" },
-    { "id": "flowers", "label": "Chunky Flowers" },
-    { "id": "custom", "label": "Custom Orders" }
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "animals",
+      "label": "Knitted Animals"
+    },
+    {
+      "id": "minis",
+      "label": "Itty Bitty Gang"
+    },
+    {
+      "id": "stockings",
+      "label": "Christmas Stockings"
+    },
+    {
+      "id": "flowers",
+      "label": "Chunky Flowers"
+    },
+    {
+      "id": "custom",
+      "label": "Custom Orders"
+    }
   ],
   "products": [
     {
@@ -109,6 +127,16 @@
       "description": "Have something special in mind? Christy makes one-of-a-kind critters to order. Reach out and let's design it together.",
       "image": "assets/images/placeholder-custom.svg",
       "status": "available"
+    },
+    {
+      "id": "bumblebee-mspafifn",
+      "name": "bumblebee",
+      "category": "animals",
+      "price": 45,
+      "description": "noice bee",
+      "image": "assets/images/placeholder-custom.svg",
+      "status": "available",
+      "featured": false
     }
   ]
 }
