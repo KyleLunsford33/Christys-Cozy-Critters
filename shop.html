@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | Christy's Cozy Critters</title>
+  <meta name="description" content="Browse Christy's Cozy Critters — hand-knit animals, mini critters, Christmas stockings, chunky flowers, and custom orders." />
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo.svg" alt="Christy's Cozy Critters logo" width="48" height="48" />
+        <span class="brand-name">Christy's Cozy Critters</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" aria-current="page">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-to-order.html">How to Order</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="nav-ig" href="https://www.instagram.com/christyscozycritters/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Shop the Critters</h1>
+        <p>Browse everything I make. See something you love? Hit <strong>Order / Inquire</strong> and I'll reply with details.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filters" id="filters" role="tablist" aria-label="Filter products by category"></div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        <p class="shop-empty" id="shop-empty" hidden>No products in this category yet — check back soon!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/images/logo.svg" alt="" width="40" height="40" />
+        <span>Christy's Cozy Critters</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="how-to-order.html">How to Order</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-tag">Hand-knit creations made with love · North Carolina</p>
+      <a class="footer-ig" href="https://www.instagram.com/christyscozycritters/" target="_blank" rel="noopener">@christyscozycritters</a>
+      <p class="footer-copy">&copy; <span id="year"></span> Christy's Cozy Critters. All rights reserved.</p>
+      <a class="footer-admin" href="/admin/">Manage site</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

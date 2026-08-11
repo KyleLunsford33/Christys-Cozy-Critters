@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Mini critter photo placeholder">
+  <rect width="400" height="400" fill="#eef3e6"/>
+  <g fill="#9c7b52">
+    <circle cx="200" cy="230" r="70"/>
+    <circle cx="168" cy="165" r="24"/>
+    <circle cx="232" cy="165" r="24"/>
+  </g>
+  <circle cx="183" cy="222" r="8" fill="#2e2117"/>
+  <circle cx="217" cy="222" r="8" fill="#2e2117"/>
+  <circle cx="200" cy="240" r="7" fill="#e08aa0"/>
+  <text x="200" y="350" font-family="Georgia, serif" font-size="20" fill="#6f7a5a" text-anchor="middle">Itty Bitty</text>
+</svg>

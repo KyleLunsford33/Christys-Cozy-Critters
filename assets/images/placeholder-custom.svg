@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Custom order photo placeholder">
+  <rect width="400" height="400" fill="#efe7f3"/>
+  <path d="M200 120 l24 48 53 8 -38 37 9 53 -48 -25 -48 25 9 -53 -38 -37 53 -8 z" fill="#a97bc0"/>
+  <text x="200" y="300" font-family="Georgia, serif" font-size="22" fill="#6f4f8a" text-anchor="middle">Made Just For You</text>
+</svg>

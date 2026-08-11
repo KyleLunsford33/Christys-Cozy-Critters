@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Manage Shop | Christy's Cozy Critters</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #fbf6ef; color: #3d2b1f;
+      display: grid; place-items: center; min-height: 100vh; margin: 0; text-align: center; padding: 20px; }
+    a { color: #c97b4a; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <!--
+    ================= SET THIS ONCE =================
+    Paste the address of your Render admin web service between the quotes below,
+    for example: "https://christys-cozy-critters-admin.onrender.com"
+    Until you do, the "Manage site" link will land on this page with instructions.
+  -->
+  <script>
+    var ADMIN_URL = "";
+
+    if (ADMIN_URL) {
+      window.location.replace(ADMIN_URL);
+    } else {
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("msg").hidden = false;
+      });
+    }
+  </script>
+
+  <div id="msg" hidden>
+    <h1>Almost there</h1>
+    <p>The shop manager hasn't been linked yet.</p>
+    <p>Open <code>admin/index.html</code> and set <code>ADMIN_URL</code> to your Render admin
+      service address (it ends in <code>.onrender.com</code>).</p>
+  </div>
+</body>
+</html>

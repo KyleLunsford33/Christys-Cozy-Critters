@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Knit flower photo placeholder">
+  <rect width="400" height="400" fill="#fbeef0"/>
+  <g fill="#d15b6e">
+    <circle cx="200" cy="150" r="40"/>
+    <circle cx="150" cy="185" r="40"/>
+    <circle cx="250" cy="185" r="40"/>
+    <circle cx="170" cy="235" r="40"/>
+    <circle cx="230" cy="235" r="40"/>
+  </g>
+  <circle cx="200" cy="195" r="34" fill="#fbf6ef"/>
+  <rect x="194" y="230" width="12" height="110" rx="6" fill="#3f7a4a"/>
+  <text x="200" y="372" font-family="Georgia, serif" font-size="20" fill="#a04a5a" text-anchor="middle">Chunky Flower</text>
+</svg>

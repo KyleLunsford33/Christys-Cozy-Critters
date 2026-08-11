@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Manage Shop | Christy's Cozy Critters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <!-- LOGIN -->
+  <section id="login-view" class="login-view" hidden>
+    <form id="login-form" class="login-card">
+      <h1>Manage Shop</h1>
+      <p class="login-sub">Enter your password to add or edit critters.</p>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Sign In</button>
+      <p class="msg" id="login-msg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- APP -->
+  <section id="app-view" hidden>
+    <header class="admin-header">
+      <div class="admin-header-inner">
+        <h1>Christy's Cozy Critters — Shop Manager</h1>
+        <div class="admin-actions">
+          <button id="add-btn" class="btn btn-primary">+ Add Critter</button>
+          <button id="save-btn" class="btn btn-save">Save &amp; Update Site</button>
+          <button id="logout-btn" class="btn btn-ghost">Sign Out</button>
+        </div>
+      </div>
+      <p class="save-hint" id="save-hint" role="status" aria-live="polite"></p>
+    </header>
+
+    <main class="admin-main">
+      <p class="dirty-banner" id="dirty-banner" hidden>You have unsaved changes. Click <strong>Save &amp; Update Site</strong> when you're done.</p>
+      <div id="product-list" class="admin-list"></div>
+    </main>
+  </section>
+
+  <!-- EDIT MODAL -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h2 id="modal-title">Add Critter</h2>
+      <form id="product-form">
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" required />
+        </div>
+        <div class="field">
+          <label for="f-category">Category</label>
+          <select id="f-category"></select>
+        </div>
+        <div class="field">
+          <label for="f-price">Price (dollars)</label>
+          <input type="number" id="f-price" min="0" step="1" placeholder="Leave blank to show &quot;Ask&quot;" />
+        </div>
+        <div class="field">
+          <label for="f-description">Description</label>
+          <textarea id="f-description" rows="3" required></textarea>
+        </div>
+        <div class="field">
+          <label for="f-photo">Photo</label>
+          <input type="file" id="f-photo" accept="image/*" />
+          <p class="upload-msg" id="upload-msg"></p>
+          <img id="f-preview" class="preview" alt="" hidden />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-status">Status</label>
+            <select id="f-status">
+              <option value="available">Available</option>
+              <option value="sold">Sold</option>
+            </select>
+          </div>
+          <label class="checkbox">
+            <input type="checkbox" id="f-featured" />
+            Feature on home page
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="cancel-btn" class="btn btn-ghost">Cancel</button>
+          <button type="submit" class="btn btn-primary">Done</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Knitted animal photo placeholder">
+  <rect width="400" height="400" fill="#f6e9d8"/>
+  <g fill="#c97b4a">
+    <circle cx="200" cy="215" r="90"/>
+    <circle cx="150" cy="140" r="34"/>
+    <circle cx="250" cy="140" r="34"/>
+  </g>
+  <circle cx="175" cy="205" r="10" fill="#3d2b1f"/>
+  <circle cx="225" cy="205" r="10" fill="#3d2b1f"/>
+  <path d="M185 235 q15 14 30 0" stroke="#3d2b1f" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="200" cy="228" r="8" fill="#e08aa0"/>
+  <text x="200" y="360" font-family="Georgia, serif" font-size="20" fill="#8a6a4f" text-anchor="middle">Cozy Critter</text>
+</svg>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Order | Christy's Cozy Critters</title>
+  <meta name="description" content="Order or say hello to Christy's Cozy Critters. Send a message about the critter you'd like or a custom idea, or DM on Instagram." />
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo.svg" alt="Christy's Cozy Critters logo" width="48" height="48" />
+        <span class="brand-name">Christy's Cozy Critters</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-to-order.html">How to Order</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a class="nav-ig" href="https://www.instagram.com/christyscozycritters/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Order or Say Hello</h1>
+        <p>Tell me about the critter you'd like and I'll reply with pricing and next steps.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-inner">
+        <div class="contact-copy">
+          <h2>Send a Message</h2>
+          <p>Include the critter you're interested in, any custom ideas, colors, sizing, and timing. I'll get back to you with pricing and next steps.</p>
+          <p class="contact-alt">Prefer Instagram? <a href="https://www.instagram.com/christyscozycritters/" target="_blank" rel="noopener">DM @christyscozycritters</a>.</p>
+        </div>
+
+        <!--
+          SET THIS ONCE: create a free form at https://formspree.io, then paste your
+          form endpoint below (looks like https://formspree.io/f/abcdwxyz). Until then,
+          submissions fall back to a "DM me on Instagram" message.
+        -->
+        <form
+          class="contact-form"
+          id="contact-form"
+          method="POST"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+        >
+          <p class="hidden-field">
+            <label>Don't fill this out if you're human: <input name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="product">Interested in</label>
+            <input type="text" id="product" name="product" placeholder="e.g. Cuddle Elephant, or a custom idea" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about colors, sizing, timing, or your custom idea." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/images/logo.svg" alt="" width="40" height="40" />
+        <span>Christy's Cozy Critters</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="how-to-order.html">How to Order</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-tag">Hand-knit creations made with love · North Carolina</p>
+      <a class="footer-ig" href="https://www.instagram.com/christyscozycritters/" target="_blank" rel="noopener">@christyscozycritters</a>
+      <p class="footer-copy">&copy; <span id="year"></span> Christy's Cozy Critters. All rights reserved.</p>
+      <a class="footer-admin" href="/admin/">Manage site</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

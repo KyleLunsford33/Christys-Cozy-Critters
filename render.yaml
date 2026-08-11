@@ -1,0 +1,53 @@
+# Render Blueprint: creates BOTH services in one step.
+# In Render: New + -> Blueprint -> pick this repo. Then fill in the marked env vars.
+#
+# 1) christys-cozy-critters        -> the fast, free public website (static)
+# 2) christys-cozy-critters-admin  -> the password-protected shop manager (web service)
+
+services:
+  # ---- Public website (static, free, no cold starts) ----
+  - type: web
+    runtime: static
+    name: christys-cozy-critters
+    branch: main
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+    routes:
+      - type: rewrite
+        source: /admin
+        destination: /admin/index.html
+
+  # ---- Shop manager (Node web service) ----
+  - type: web
+    runtime: node
+    name: christys-cozy-critters-admin
+    branch: main
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      # The password Christy types to sign in. Set this yourself (keep it private).
+      - key: ADMIN_PASSWORD
+        sync: false
+      # Signs login sessions. Render generates a random value for you.
+      - key: SESSION_SECRET
+        generateValue: true
+      # A GitHub token with "Contents: Read and write" on this repo. Set this yourself.
+      - key: GITHUB_TOKEN
+        sync: false
+      # Your GitHub username (or org) that owns the repo. Set this yourself.
+      - key: GITHUB_OWNER
+        sync: false
+      # The repository name. Set this yourself.
+      - key: GITHUB_REPO
+        sync: false
+      # The branch the site deploys from.
+      - key: GITHUB_BRANCH
+        value: main

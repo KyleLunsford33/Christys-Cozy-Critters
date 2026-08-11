@@ -1,0 +1,114 @@
+{
+  "categories": [
+    { "id": "all", "label": "All" },
+    { "id": "animals", "label": "Knitted Animals" },
+    { "id": "minis", "label": "Itty Bitty Gang" },
+    { "id": "stockings", "label": "Christmas Stockings" },
+    { "id": "flowers", "label": "Chunky Flowers" },
+    { "id": "custom", "label": "Custom Orders" }
+  ],
+  "products": [
+    {
+      "id": "elephant-plush",
+      "name": "Cuddle Elephant",
+      "category": "animals",
+      "price": 35,
+      "description": "Super-soft chunky knit elephant with floppy ears. Great for babies and big kids alike.",
+      "image": "assets/images/placeholder-animal.svg",
+      "status": "available",
+      "featured": true
+    },
+    {
+      "id": "bunny-plush",
+      "name": "Snuggle Bunny",
+      "category": "animals",
+      "price": 30,
+      "description": "Long-eared plush bunny made from ultra-soft velvet yarn. Choose your color.",
+      "image": "assets/images/placeholder-animal.svg",
+      "status": "available"
+    },
+    {
+      "id": "puppy-plush",
+      "name": "Sleepy Puppy",
+      "category": "animals",
+      "price": 32,
+      "description": "A floppy little pup ready for naps and adventures. Made with love.",
+      "image": "assets/images/placeholder-animal.svg",
+      "status": "available"
+    },
+    {
+      "id": "itty-bitty-bear",
+      "name": "Itty Bitty Bear",
+      "category": "minis",
+      "price": 15,
+      "description": "Pocket-sized mini from the Itty Bitty Gang. Perfect little gift or stocking stuffer.",
+      "image": "assets/images/placeholder-mini.svg",
+      "status": "available"
+    },
+    {
+      "id": "itty-bitty-chick",
+      "name": "Itty Bitty Chick",
+      "category": "minis",
+      "price": 15,
+      "description": "Tiny handmade chick from the Itty Bitty Gang. Fits in the palm of your hand.",
+      "image": "assets/images/placeholder-mini.svg",
+      "status": "available"
+    },
+    {
+      "id": "itty-bitty-bundle",
+      "name": "Itty Bitty Gang Bundle",
+      "category": "minis",
+      "price": 40,
+      "description": "A set of three mini critters of your choice. Mix and match your favorites.",
+      "image": "assets/images/placeholder-mini.svg",
+      "status": "available"
+    },
+    {
+      "id": "christmas-stocking",
+      "name": "Hand-Knit Christmas Stocking",
+      "category": "stockings",
+      "price": 45,
+      "description": "Chunky red, white and green stocking with a cozy fold-over cuff. Name embroidery available.",
+      "image": "assets/images/placeholder-stocking.svg",
+      "status": "available",
+      "featured": true
+    },
+    {
+      "id": "stocking-set",
+      "name": "Matching Stocking Set (2)",
+      "category": "stockings",
+      "price": 80,
+      "description": "A matched pair of hand-knit holiday stockings. Great for couples or siblings.",
+      "image": "assets/images/placeholder-stocking.svg",
+      "status": "sold"
+    },
+    {
+      "id": "chunky-flower",
+      "name": "Chunky Knit Flower",
+      "category": "flowers",
+      "price": 20,
+      "description": "Everlasting chunky-yarn flower in red and cream. A bloom that never wilts.",
+      "image": "assets/images/placeholder-flower.svg",
+      "status": "available",
+      "featured": true
+    },
+    {
+      "id": "flower-bouquet",
+      "name": "Knit Flower Bouquet",
+      "category": "flowers",
+      "price": 55,
+      "description": "A bouquet of five chunky knit flowers in the colors of your choice.",
+      "image": "assets/images/placeholder-flower.svg",
+      "status": "available"
+    },
+    {
+      "id": "custom-critter",
+      "name": "Custom Critter",
+      "category": "custom",
+      "price": null,
+      "description": "Have something special in mind? Christy makes one-of-a-kind critters to order. Reach out and let's design it together.",
+      "image": "assets/images/placeholder-custom.svg",
+      "status": "available"
+    }
+  ]
+}
