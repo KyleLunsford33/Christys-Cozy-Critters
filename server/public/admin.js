@@ -36,8 +36,21 @@
     const res = await fetch(path, Object.assign({ credentials: "same-origin" }, options));
     let data = {};
     try { data = await res.json(); } catch (e) { /* ignore */ }
+    if (res.status === 401) {
+      // The session ended (often because the manager restarted). Return to login.
+      forceLogin();
+      throw new Error(data.error || "Your session ended — please sign in again.");
+    }
     if (!res.ok) throw new Error(data.error || "Request failed (" + res.status + ")");
     return data;
+  }
+
+  function forceLogin() {
+    if (modal) modal.hidden = true;
+    appView.hidden = true;
+    loginView.hidden = false;
+    loginMsg.textContent = "Your session ended. Please sign in again.";
+    loginMsg.className = "msg error";
   }
 
   /* ---------- Auth ---------- */

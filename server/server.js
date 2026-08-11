@@ -23,6 +23,20 @@ app.set("trust proxy", 1);
 app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
 
+// Allow the public website (a different address) to talk to this manager.
+// Editing is protected by the login token below, so reflecting the origin is safe here.
+app.use(function (req, res, next) {
+  const origin = req.headers.origin;
+  if (origin) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Vary", "Origin");
+  }
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Authorization, Content-Type");
+  if (req.method === "OPTIONS") return res.sendStatus(204);
+  next();
+});
+
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 8 * 1024 * 1024 }, // 8 MB
@@ -38,17 +52,25 @@ function safeEqual(a, b) {
 }
 
 function issueToken(res) {
-  const token = jwt.sign({ role: "admin" }, SESSION_SECRET, { expiresIn: "12h" });
+  const token = jwt.sign({ role: "admin" }, SESSION_SECRET, { expiresIn: "30d" });
+  // Cookie is handy for same-origin; the token is also returned for the website to store.
   res.cookie(COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
     secure: IS_PROD,
-    maxAge: 12 * 60 * 60 * 1000,
+    maxAge: 30 * 24 * 60 * 60 * 1000,
   });
+  return token;
+}
+
+function getToken(req) {
+  const header = req.headers.authorization || "";
+  if (header.indexOf("Bearer ") === 0) return header.slice(7);
+  return (req.cookies && req.cookies[COOKIE]) || null;
 }
 
 function isAuthed(req) {
-  const token = req.cookies && req.cookies[COOKIE];
+  const token = getToken(req);
   if (!token) return false;
   try {
     jwt.verify(token, SESSION_SECRET);
@@ -81,8 +103,8 @@ app.post("/api/login", function (req, res) {
   if (!safeEqual(password, ADMIN_PASSWORD)) {
     return res.status(401).json({ error: "Incorrect password." });
   }
-  issueToken(res);
-  res.json({ ok: true });
+  const token = issueToken(res);
+  res.json({ ok: true, token: token });
 });
 
 app.post("/api/logout", function (req, res) {

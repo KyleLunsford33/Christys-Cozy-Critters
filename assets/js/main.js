@@ -106,6 +106,7 @@
 
   function renderGrid() {
     if (!grid) return;
+    if (window.__cccEditActive) return; // manager is showing editable cards
     grid.innerHTML = "";
     const list = activeCategory === "all"
       ? allProducts
