@@ -27,25 +27,6 @@
   ],
   "products": [
     {
-      "id": "elephant-plush",
-      "name": "Cuddle Elephant",
-      "category": "animals",
-      "price": 35,
-      "description": "Super-soft chunky knit elephant with floppy ears. Great for babies and big kids alike.",
-      "image": "assets/images/placeholder-animal.svg",
-      "status": "available",
-      "featured": true
-    },
-    {
-      "id": "bunny-plush",
-      "name": "Snuggle Bunny",
-      "category": "animals",
-      "price": 30,
-      "description": "Long-eared plush bunny made from ultra-soft velvet yarn. Choose your color.",
-      "image": "assets/images/placeholder-animal.svg",
-      "status": "available"
-    },
-    {
       "id": "puppy-plush",
       "name": "Sleepy Puppy",
       "category": "animals",
@@ -64,24 +45,6 @@
       "status": "available"
     },
     {
-      "id": "itty-bitty-chick",
-      "name": "Itty Bitty Chick",
-      "category": "minis",
-      "price": 15,
-      "description": "Tiny handmade chick from the Itty Bitty Gang. Fits in the palm of your hand.",
-      "image": "assets/images/placeholder-mini.svg",
-      "status": "available"
-    },
-    {
-      "id": "itty-bitty-bundle",
-      "name": "Itty Bitty Gang Bundle",
-      "category": "minis",
-      "price": 40,
-      "description": "A set of three mini critters of your choice. Mix and match your favorites.",
-      "image": "assets/images/placeholder-mini.svg",
-      "status": "available"
-    },
-    {
       "id": "christmas-stocking",
       "name": "Hand-Knit Christmas Stocking",
       "category": "stockings",
@@ -90,15 +53,6 @@
       "image": "assets/images/placeholder-stocking.svg",
       "status": "available",
       "featured": true
-    },
-    {
-      "id": "stocking-set",
-      "name": "Matching Stocking Set (2)",
-      "category": "stockings",
-      "price": 80,
-      "description": "A matched pair of hand-knit holiday stockings. Great for couples or siblings.",
-      "image": "assets/images/placeholder-stocking.svg",
-      "status": "sold"
     },
     {
       "id": "chunky-flower",
