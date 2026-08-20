@@ -77,5 +77,21 @@
       "label": "Kwanzaa"
     }
   ],
-  "products": []
+  "products": [
+    {
+      "id": "fun-bear-mt0um4jq",
+      "name": "fun bear",
+      "seasons": [
+        "winter",
+        "christmas"
+      ],
+      "price": 25,
+      "description": "cute bear to hug you",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com",
+      "image": "assets/images/uploads/1787189710605-ideas-for-stuffed-animals-im-obsessively-knitting-teddy-v0-myvy6mjrx7dc1.jpg.webp",
+      "status": "available",
+      "featured": false
+    }
+  ]
 }
