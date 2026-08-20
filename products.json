@@ -20,29 +20,6 @@
   ],
   "products": [
     {
-      "id": "elephant-plush",
-      "name": "Cuddle Elephant",
-      "seasons": ["year-round"],
-      "price": 35,
-      "description": "Super-soft chunky knit elephant with floppy ears. Great for babies and big kids alike.",
-      "image": "assets/images/placeholder-animal.svg",
-      "status": "available",
-      "featured": true,
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "bunny-plush",
-      "name": "Snuggle Bunny",
-      "seasons": ["year-round", "spring", "easter"],
-      "price": 30,
-      "description": "Long-eared plush bunny made from ultra-soft velvet yarn. Choose your color.",
-      "image": "assets/images/placeholder-animal.svg",
-      "status": "available",
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
       "id": "puppy-plush",
       "name": "Sleepy Puppy",
       "seasons": ["year-round"],
@@ -65,28 +42,6 @@
       "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
-      "id": "itty-bitty-chick",
-      "name": "Itty Bitty Chick",
-      "seasons": ["year-round", "spring", "easter"],
-      "price": 15,
-      "description": "Tiny handmade chick from the Itty Bitty Gang. Fits in the palm of your hand.",
-      "image": "assets/images/placeholder-mini.svg",
-      "status": "available",
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "itty-bitty-bundle",
-      "name": "Itty Bitty Gang Bundle",
-      "seasons": ["year-round"],
-      "price": 40,
-      "description": "A set of three mini critters of your choice. Mix and match your favorites.",
-      "image": "assets/images/placeholder-mini.svg",
-      "status": "available",
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
       "id": "christmas-stocking",
       "name": "Hand-Knit Christmas Stocking",
       "seasons": ["christmas", "winter"],
@@ -95,17 +50,6 @@
       "image": "assets/images/placeholder-stocking.svg",
       "status": "available",
       "featured": true,
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "stocking-set",
-      "name": "Matching Stocking Set (2)",
-      "seasons": ["christmas", "winter"],
-      "price": 80,
-      "description": "A matched pair of hand-knit holiday stockings. Great for couples or siblings.",
-      "image": "assets/images/placeholder-stocking.svg",
-      "status": "sold",
       "credit": "The Cozy Company",
       "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
@@ -140,6 +84,18 @@
       "description": "Have something special in mind? I make one-of-a-kind critters to order. Reach out and let's design it together.",
       "image": "assets/images/placeholder-custom.svg",
       "status": "available",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
+    },
+    {
+      "id": "bumblebee-mspafifn",
+      "name": "bumblebee",
+      "seasons": ["year-round", "spring", "summer"],
+      "price": 45,
+      "description": "noice bee",
+      "image": "assets/images/placeholder-custom.svg",
+      "status": "available",
+      "featured": false,
       "credit": "The Cozy Company",
       "creditUrl": "http://www.TheCozyCompanyNH.com"
     }
