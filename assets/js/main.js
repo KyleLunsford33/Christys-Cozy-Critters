@@ -7,6 +7,29 @@
   // credit of its own, this one is shown so the designer is never left off.
   const DEFAULT_CREDIT = { name: "The Cozy Company", url: "http://www.TheCozyCompanyNH.com" };
 
+  // Icon and blurb for each season/holiday. The home page cards are built from the
+  // same category list the shop uses, so the two pages can't drift apart.
+  const CATEGORY_LOOK = {
+    "year-round": { icon: "\uD83E\uDDF8", blurb: "Snuggly critters for any time of year." },
+    "spring": { icon: "\uD83C\uDF37", blurb: "Fresh blooms and new little friends." },
+    "summer": { icon: "\u2600\uFE0F", blurb: "Bright, sunny critters for warm days." },
+    "fall": { icon: "\uD83C\uDF42", blurb: "Warm colors and cozy autumn favorites." },
+    "winter": { icon: "\u2744\uFE0F", blurb: "Snug knits for the coldest months." },
+    "new-year": { icon: "\uD83C\uDF89", blurb: "Ring in the new year in style." },
+    "lunar-new-year": { icon: "\uD83D\uDC09", blurb: "Celebrate the Lunar New Year." },
+    "valentines": { icon: "\u2764\uFE0F", blurb: "Handmade love for your valentine." },
+    "st-patricks": { icon: "\uD83C\uDF40", blurb: "A little luck of the Irish." },
+    "easter": { icon: "\uD83D\uDC30", blurb: "Bunnies, chicks, and basket fillers." },
+    "mothers-day": { icon: "\uD83D\uDC90", blurb: "Something special for mom." },
+    "fathers-day": { icon: "\uD83D\uDC54", blurb: "A cozy gift for dad." },
+    "fourth-of-july": { icon: "\uD83C\uDF86", blurb: "Red, white, and handmade." },
+    "halloween": { icon: "\uD83C\uDF83", blurb: "Spooky-cute critters for trick-or-treat." },
+    "thanksgiving": { icon: "\uD83E\uDD83", blurb: "Gather-round gifts and table charm." },
+    "hanukkah": { icon: "\uD83D\uDD4E", blurb: "Handmade warmth for the Festival of Lights." },
+    "christmas": { icon: "\uD83C\uDF84", blurb: "Stockings and holiday critters." },
+    "kwanzaa": { icon: "\uD83D\uDD6F\uFE0F", blurb: "Celebrate with something handmade." },
+  };
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -129,6 +152,7 @@
   const filtersEl = document.getElementById("filters");
   const emptyEl = document.getElementById("shop-empty");
   const featuredGrid = document.getElementById("featured-grid");
+  const categoryCards = document.getElementById("category-cards");
 
   let allProducts = [];
   let categories = [];
@@ -152,24 +176,10 @@
     list.forEach(function (p) { grid.appendChild(createCard(p)); });
   }
 
-  function seasonsInUse() {
-    const used = {};
-    allProducts.forEach(function (p) {
-      productSeasons(p).forEach(function (s) { used[s] = true; });
-    });
-    return used;
-  }
-
   function renderFilters() {
     if (!filtersEl) return;
     filtersEl.innerHTML = "";
-    // Show a tab only when something is actually tagged with it, so the row stays
-    // short instead of listing every holiday of the year.
-    const used = seasonsInUse();
-    const visible = categories.filter(function (cat) {
-      return cat.id === "all" || used[cat.id];
-    });
-    visible.forEach(function (cat) {
+    categories.forEach(function (cat) {
       const chip = document.createElement("button");
       chip.type = "button";
       chip.className = "filter-chip";
@@ -188,9 +198,44 @@
     });
   }
 
+  function renderCategoryCards() {
+    if (!categoryCards) return;
+    categoryCards.innerHTML = "";
+    categories
+      .filter(function (cat) { return cat.id !== "all"; })
+      .forEach(function (cat) {
+        const look = CATEGORY_LOOK[cat.id] || {};
+        const card = document.createElement("a");
+        card.className = "category-card";
+        card.href = "shop.html?category=" + encodeURIComponent(cat.id);
+
+        const icon = document.createElement("span");
+        icon.className = "category-emoji";
+        icon.setAttribute("aria-hidden", "true");
+        icon.textContent = look.icon || "\uD83E\uDDF6";
+
+        const title = document.createElement("h3");
+        title.textContent = cat.label;
+
+        const blurb = document.createElement("p");
+        blurb.textContent = look.blurb || "";
+
+        card.appendChild(icon);
+        card.appendChild(title);
+        card.appendChild(blurb);
+        categoryCards.appendChild(card);
+      });
+  }
+
   function renderFeatured() {
     if (!featuredGrid) return;
     featuredGrid.innerHTML = "";
+    if (allProducts.length === 0) {
+      featuredGrid.innerHTML =
+        '<p class="shop-empty">New critters are on the way — follow along on ' +
+        '<a href="' + IG_URL + '" target="_blank" rel="noopener">Instagram</a> for the latest.</p>';
+      return;
+    }
     const available = allProducts.filter(function (p) { return p.status !== "sold"; });
     const featured = available.filter(function (p) { return p.featured; });
     const others = available.filter(function (p) { return !p.featured; });
@@ -210,14 +255,15 @@
       ? data.categories
       : [{ id: "all", label: "All" }];
 
-    // Preselect a category from ?category= when something is tagged with it.
+    // Preselect a category from ?category= if it's one we know about.
     const requested = getParam("category");
-    if (requested && seasonsInUse()[requested]) {
+    if (requested && categories.some(function (c) { return c.id === requested; })) {
       activeCategory = requested;
     }
 
     renderFilters();
     renderGrid();
+    renderCategoryCards();
     renderFeatured();
   }
 
@@ -232,7 +278,7 @@
   }
 
   // Only fetch products on pages that actually show them.
-  if (grid || featuredGrid) {
+  if (grid || featuredGrid || categoryCards) {
     fetch("products.json")
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);

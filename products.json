@@ -6,6 +6,8 @@
     { "id": "summer", "label": "Summer" },
     { "id": "fall", "label": "Fall" },
     { "id": "winter", "label": "Winter" },
+    { "id": "new-year", "label": "New Year" },
+    { "id": "lunar-new-year", "label": "Lunar New Year" },
     { "id": "valentines", "label": "Valentine's Day" },
     { "id": "st-patricks", "label": "St. Patrick's Day" },
     { "id": "easter", "label": "Easter" },
@@ -14,90 +16,9 @@
     { "id": "fourth-of-july", "label": "Fourth of July" },
     { "id": "halloween", "label": "Halloween" },
     { "id": "thanksgiving", "label": "Thanksgiving" },
-    { "id": "christmas", "label": "Christmas" },
     { "id": "hanukkah", "label": "Hanukkah" },
-    { "id": "new-year", "label": "New Year" }
+    { "id": "christmas", "label": "Christmas" },
+    { "id": "kwanzaa", "label": "Kwanzaa" }
   ],
-  "products": [
-    {
-      "id": "puppy-plush",
-      "name": "Sleepy Puppy",
-      "seasons": ["year-round"],
-      "price": 32,
-      "description": "A floppy little pup ready for naps and adventures. Made with love.",
-      "image": "assets/images/placeholder-animal.svg",
-      "status": "available",
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "itty-bitty-bear",
-      "name": "Itty Bitty Bear",
-      "seasons": ["year-round"],
-      "price": 15,
-      "description": "Pocket-sized mini from the Itty Bitty Gang. Perfect little gift or stocking stuffer.",
-      "image": "assets/images/placeholder-mini.svg",
-      "status": "available",
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "christmas-stocking",
-      "name": "Hand-Knit Christmas Stocking",
-      "seasons": ["christmas", "winter"],
-      "price": 45,
-      "description": "Chunky red, white and green stocking with a cozy fold-over cuff. Name embroidery available.",
-      "image": "assets/images/placeholder-stocking.svg",
-      "status": "available",
-      "featured": true,
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "chunky-flower",
-      "name": "Chunky Knit Flower",
-      "seasons": ["spring", "summer", "mothers-day"],
-      "price": 20,
-      "description": "Everlasting chunky-yarn flower in red and cream. A bloom that never wilts.",
-      "image": "assets/images/placeholder-flower.svg",
-      "status": "available",
-      "featured": true,
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "flower-bouquet",
-      "name": "Knit Flower Bouquet",
-      "seasons": ["spring", "summer", "mothers-day"],
-      "price": 55,
-      "description": "A bouquet of five chunky knit flowers in the colors of your choice.",
-      "image": "assets/images/placeholder-flower.svg",
-      "status": "available",
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "custom-critter",
-      "name": "Custom Critter",
-      "seasons": ["year-round"],
-      "price": null,
-      "description": "Have something special in mind? I make one-of-a-kind critters to order. Reach out and let's design it together.",
-      "image": "assets/images/placeholder-custom.svg",
-      "status": "available",
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "bumblebee-mspafifn",
-      "name": "bumblebee",
-      "seasons": ["year-round", "spring", "summer"],
-      "price": 45,
-      "description": "noice bee",
-      "image": "assets/images/placeholder-custom.svg",
-      "status": "available",
-      "featured": false,
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com"
-    }
-  ]
+  "products": []
 }
