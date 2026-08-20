@@ -145,6 +145,11 @@ img { max-width: 100%; display: block; }
 .product-name { font-family: var(--font-head); font-weight: 600; font-size: 1.18rem; color: var(--brown); margin: 0; }
 .product-price { font-family: var(--font-head); font-weight: 700; color: var(--orange-deep); white-space: nowrap; }
 .product-desc { color: var(--ink-soft); font-size: .95rem; margin: 0; flex: 1; }
+.product-credit {
+  margin: 0; font-size: .8rem; color: var(--brown-soft);
+  border-top: 1px dashed var(--tan); padding-top: 8px;
+}
+.product-credit a { color: var(--orange-deep); font-weight: 600; }
 .product-card .btn { width: 100%; text-align: center; margin-top: 8px; }
 .btn[disabled] { opacity: .55; cursor: not-allowed; pointer-events: none; }
 
@@ -198,6 +203,8 @@ img { max-width: 100%; display: block; }
 .footer-brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; }
 .footer-brand img { border-radius: 50%; background: var(--cream); }
 .footer-tag { color: var(--tan); margin: 4px 0; }
+.footer-credit { color: var(--tan); font-size: .9rem; margin: 2px 0; }
+.footer-credit a { color: var(--white); font-weight: 600; text-decoration: underline; }
 .footer-ig { color: var(--pink-soft); font-weight: 700; }
 .footer-ig:hover { color: var(--white); }
 .footer-copy { color: rgba(251,246,239,.6); font-size: .88rem; margin: 8px 0 0; }
@@ -226,6 +233,18 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Center CTA ---------- */
 .center-cta { text-align: center; margin-top: 40px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Credits page ---------- */
+.credit-page { max-width: 760px; }
+.credit-page h2 { font-family: var(--font-head); color: var(--brown); margin: 34px 0 10px; }
+.credit-page h2:first-child { margin-top: 0; }
+.credit-page p { color: var(--ink-soft); }
+.credit-page a { color: var(--orange-deep); font-weight: 600; }
+.credit-card {
+  background: var(--cream-2); border: 2px solid var(--tan); border-radius: var(--radius);
+  padding: 24px 26px; margin: 26px 0;
+}
+.credit-card h3 { font-family: var(--font-head); color: var(--brown); margin: 0 0 8px; }
 
 /* ---------- Mini steps (home teaser) ---------- */
 .mini-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; }
@@ -309,6 +328,19 @@ img { max-width: 100%; display: block; }
 .field-row { display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; }
 .field-row .field { flex: 1 1 140px; }
 .ccc-check { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--ink-soft); }
+.ccc-label { font-weight: 600; color: var(--ink-soft); }
+.ccc-hint { margin: 0; font-size: .85rem; color: var(--brown-soft); }
+.ccc-checks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 6px 12px;
+  max-height: 210px;
+  overflow-y: auto;
+  border: 2px solid var(--tan);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.ccc-checks .ccc-check { font-weight: 500; font-size: .92rem; }
 
 .ccc-toolbar {
   position: sticky;

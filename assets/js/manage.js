@@ -4,6 +4,7 @@
   // The manager (web service) address. If you ever rename that Render service, update this.
   var API_BASE = "https://christys-cozycritters.onrender.com";
   var TOKEN_KEY = "ccc_token";
+  var DEFAULT_CREDIT = { name: "The Cozy Company", url: "http://www.TheCozyCompanyNH.com" };
 
   var grid = document.getElementById("product-grid");
   var filtersEl = document.getElementById("filters");
@@ -170,6 +171,12 @@
     return c ? c.label : id;
   }
 
+  function productSeasons(p) {
+    if (Array.isArray(p.seasons) && p.seasons.length) return p.seasons;
+    if (p.category) return [p.category]; // older listings
+    return ["year-round"];
+  }
+
   function renderEditable() {
     grid.innerHTML = "";
     if (state.products.length === 0) {
@@ -203,7 +210,7 @@
       body.querySelector(".product-name").textContent = p.name || "(no name)";
       body.querySelector(".product-price").textContent = priceText;
       body.querySelector(".product-desc").textContent =
-        categoryLabel(p.category) + (p.featured ? " · Featured" : "");
+        productSeasons(p).map(categoryLabel).join(" · ") + (p.featured ? " · Featured" : "");
 
       var actions = document.createElement("div");
       actions.className = "edit-card-actions";
@@ -242,10 +249,16 @@
       '<h2 id="ccc-edit-title">Add Critter</h2>' +
       '<form id="ccc-edit-form">' +
       '<div class="field"><label for="ccc-name">Name</label><input type="text" id="ccc-name" required /></div>' +
-      '<div class="field"><label for="ccc-cat">Category</label><select id="ccc-cat"></select></div>' +
+      '<div class="field"><span class="ccc-label">Seasons &amp; holidays</span>' +
+      '<p class="ccc-hint">Tick every one it belongs to. A pumpkin can be both Fall and Halloween.</p>' +
+      '<div class="ccc-checks" id="ccc-seasons"></div></div>' +
       '<div class="field"><label for="ccc-price">Price (dollars)</label>' +
       '<input type="number" id="ccc-price" min="0" step="1" placeholder="Leave blank to show Ask" /></div>' +
       '<div class="field"><label for="ccc-desc">Description</label><textarea id="ccc-desc" rows="3" required></textarea></div>' +
+      '<div class="field"><label for="ccc-credit">Pattern designer (credit)</label>' +
+      '<input type="text" id="ccc-credit" placeholder="The Cozy Company" /></div>' +
+      '<div class="field"><label for="ccc-credit-url">Designer website</label>' +
+      '<input type="url" id="ccc-credit-url" placeholder="http://www.TheCozyCompanyNH.com" /></div>' +
       '<div class="field"><label for="ccc-photo">Photo</label><input type="file" id="ccc-photo" accept="image/*" />' +
       '<p class="ccc-msg" id="ccc-upload-msg"></p><img id="ccc-preview" class="ccc-preview" alt="" hidden /></div>' +
       '<div class="field-row"><div class="field"><label for="ccc-status">Status</label>' +
@@ -262,47 +275,54 @@
     editModal.querySelector("#ccc-edit-form").addEventListener("submit", onEditorSubmit);
   }
 
-  function fillCategoryOptions() {
-    var sel = editModal.querySelector("#ccc-cat");
-    sel.innerHTML = "";
+  function fillSeasonChecks(selected) {
+    var wrap = editModal.querySelector("#ccc-seasons");
+    wrap.innerHTML = "";
     state.categories
       .filter(function (c) { return c.id !== "all"; })
       .forEach(function (c) {
-        var o = document.createElement("option");
-        o.value = c.id;
-        o.textContent = c.label;
-        sel.appendChild(o);
+        var label = document.createElement("label");
+        label.className = "ccc-check";
+        var input = document.createElement("input");
+        input.type = "checkbox";
+        input.value = c.id;
+        if (selected.indexOf(c.id) !== -1) input.checked = true;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + c.label));
+        wrap.appendChild(label);
       });
   }
 
   function openEditor(index) {
     ensureEditModal();
-    fillCategoryOptions();
     editingIndex = index;
     currentImage = "";
+    editModal.querySelector("#ccc-edit-form").reset();
     var upMsg = editModal.querySelector("#ccc-upload-msg");
     upMsg.textContent = "";
     upMsg.className = "ccc-msg";
-    editModal.querySelector("#ccc-photo").value = "";
     var preview = editModal.querySelector("#ccc-preview");
+    preview.hidden = true;
+    preview.removeAttribute("src");
 
     if (index >= 0) {
       var p = state.products[index];
       editModal.querySelector("#ccc-edit-title").textContent = "Edit Critter";
       editModal.querySelector("#ccc-name").value = p.name || "";
-      editModal.querySelector("#ccc-cat").value = p.category || "";
       editModal.querySelector("#ccc-price").value = (p.price === null || p.price === undefined) ? "" : p.price;
       editModal.querySelector("#ccc-desc").value = p.description || "";
+      editModal.querySelector("#ccc-credit").value = p.credit || DEFAULT_CREDIT.name;
+      editModal.querySelector("#ccc-credit-url").value = p.creditUrl || DEFAULT_CREDIT.url;
       editModal.querySelector("#ccc-status").value = p.status || "available";
       editModal.querySelector("#ccc-featured").checked = !!p.featured;
+      fillSeasonChecks(productSeasons(p));
       currentImage = p.image || "";
       if (currentImage) { preview.hidden = false; preview.src = imgSrc(currentImage); }
-      else { preview.hidden = true; preview.removeAttribute("src"); }
     } else {
       editModal.querySelector("#ccc-edit-title").textContent = "Add Critter";
-      editModal.querySelector("#ccc-edit-form").reset();
-      preview.hidden = true;
-      preview.removeAttribute("src");
+      editModal.querySelector("#ccc-credit").value = DEFAULT_CREDIT.name;
+      editModal.querySelector("#ccc-credit-url").value = DEFAULT_CREDIT.url;
+      fillSeasonChecks(["year-round"]);
     }
     editModal.hidden = false;
     editModal.querySelector("#ccc-name").focus();
@@ -342,14 +362,19 @@
     e.preventDefault();
     var priceRaw = editModal.querySelector("#ccc-price").value.trim();
     var name = editModal.querySelector("#ccc-name").value.trim();
+    var checked = editModal.querySelectorAll("#ccc-seasons input:checked");
+    var seasons = Array.prototype.map.call(checked, function (i) { return i.value; });
+    if (seasons.length === 0) seasons = ["year-round"]; // never let a critter fall out of the shop
     var record = {
       id: (editingIndex >= 0 && state.products[editingIndex].id)
         ? state.products[editingIndex].id
         : slugify(name) + "-" + Date.now().toString(36),
       name: name,
-      category: editModal.querySelector("#ccc-cat").value,
+      seasons: seasons,
       price: priceRaw === "" ? null : Number(priceRaw),
       description: editModal.querySelector("#ccc-desc").value.trim(),
+      credit: editModal.querySelector("#ccc-credit").value.trim() || DEFAULT_CREDIT.name,
+      creditUrl: editModal.querySelector("#ccc-credit-url").value.trim() || DEFAULT_CREDIT.url,
       image: currentImage || "assets/images/placeholder-custom.svg",
       status: editModal.querySelector("#ccc-status").value,
       featured: editModal.querySelector("#ccc-featured").checked,

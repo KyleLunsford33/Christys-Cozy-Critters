@@ -1,114 +1,147 @@
 {
   "categories": [
     { "id": "all", "label": "All" },
-    { "id": "animals", "label": "Knitted Animals" },
-    { "id": "minis", "label": "Itty Bitty Gang" },
-    { "id": "stockings", "label": "Christmas Stockings" },
-    { "id": "flowers", "label": "Chunky Flowers" },
-    { "id": "custom", "label": "Custom Orders" }
+    { "id": "year-round", "label": "Year-Round" },
+    { "id": "spring", "label": "Spring" },
+    { "id": "summer", "label": "Summer" },
+    { "id": "fall", "label": "Fall" },
+    { "id": "winter", "label": "Winter" },
+    { "id": "valentines", "label": "Valentine's Day" },
+    { "id": "st-patricks", "label": "St. Patrick's Day" },
+    { "id": "easter", "label": "Easter" },
+    { "id": "mothers-day", "label": "Mother's Day" },
+    { "id": "fathers-day", "label": "Father's Day" },
+    { "id": "fourth-of-july", "label": "Fourth of July" },
+    { "id": "halloween", "label": "Halloween" },
+    { "id": "thanksgiving", "label": "Thanksgiving" },
+    { "id": "christmas", "label": "Christmas" },
+    { "id": "hanukkah", "label": "Hanukkah" },
+    { "id": "new-year", "label": "New Year" }
   ],
   "products": [
     {
       "id": "elephant-plush",
       "name": "Cuddle Elephant",
-      "category": "animals",
+      "seasons": ["year-round"],
       "price": 35,
       "description": "Super-soft chunky knit elephant with floppy ears. Great for babies and big kids alike.",
       "image": "assets/images/placeholder-animal.svg",
       "status": "available",
-      "featured": true
+      "featured": true,
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "bunny-plush",
       "name": "Snuggle Bunny",
-      "category": "animals",
+      "seasons": ["year-round", "spring", "easter"],
       "price": 30,
       "description": "Long-eared plush bunny made from ultra-soft velvet yarn. Choose your color.",
       "image": "assets/images/placeholder-animal.svg",
-      "status": "available"
+      "status": "available",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "puppy-plush",
       "name": "Sleepy Puppy",
-      "category": "animals",
+      "seasons": ["year-round"],
       "price": 32,
       "description": "A floppy little pup ready for naps and adventures. Made with love.",
       "image": "assets/images/placeholder-animal.svg",
-      "status": "available"
+      "status": "available",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "itty-bitty-bear",
       "name": "Itty Bitty Bear",
-      "category": "minis",
+      "seasons": ["year-round"],
       "price": 15,
       "description": "Pocket-sized mini from the Itty Bitty Gang. Perfect little gift or stocking stuffer.",
       "image": "assets/images/placeholder-mini.svg",
-      "status": "available"
+      "status": "available",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "itty-bitty-chick",
       "name": "Itty Bitty Chick",
-      "category": "minis",
+      "seasons": ["year-round", "spring", "easter"],
       "price": 15,
       "description": "Tiny handmade chick from the Itty Bitty Gang. Fits in the palm of your hand.",
       "image": "assets/images/placeholder-mini.svg",
-      "status": "available"
+      "status": "available",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "itty-bitty-bundle",
       "name": "Itty Bitty Gang Bundle",
-      "category": "minis",
+      "seasons": ["year-round"],
       "price": 40,
       "description": "A set of three mini critters of your choice. Mix and match your favorites.",
       "image": "assets/images/placeholder-mini.svg",
-      "status": "available"
+      "status": "available",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "christmas-stocking",
       "name": "Hand-Knit Christmas Stocking",
-      "category": "stockings",
+      "seasons": ["christmas", "winter"],
       "price": 45,
       "description": "Chunky red, white and green stocking with a cozy fold-over cuff. Name embroidery available.",
       "image": "assets/images/placeholder-stocking.svg",
       "status": "available",
-      "featured": true
+      "featured": true,
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "stocking-set",
       "name": "Matching Stocking Set (2)",
-      "category": "stockings",
+      "seasons": ["christmas", "winter"],
       "price": 80,
       "description": "A matched pair of hand-knit holiday stockings. Great for couples or siblings.",
       "image": "assets/images/placeholder-stocking.svg",
-      "status": "sold"
+      "status": "sold",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "chunky-flower",
       "name": "Chunky Knit Flower",
-      "category": "flowers",
+      "seasons": ["spring", "summer", "mothers-day"],
       "price": 20,
       "description": "Everlasting chunky-yarn flower in red and cream. A bloom that never wilts.",
       "image": "assets/images/placeholder-flower.svg",
       "status": "available",
-      "featured": true
+      "featured": true,
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "flower-bouquet",
       "name": "Knit Flower Bouquet",
-      "category": "flowers",
+      "seasons": ["spring", "summer", "mothers-day"],
       "price": 55,
       "description": "A bouquet of five chunky knit flowers in the colors of your choice.",
       "image": "assets/images/placeholder-flower.svg",
-      "status": "available"
+      "status": "available",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     },
     {
       "id": "custom-critter",
       "name": "Custom Critter",
-      "category": "custom",
+      "seasons": ["year-round"],
       "price": null,
-      "description": "Have something special in mind? Christy makes one-of-a-kind critters to order. Reach out and let's design it together.",
+      "description": "Have something special in mind? I make one-of-a-kind critters to order. Reach out and let's design it together.",
       "image": "assets/images/placeholder-custom.svg",
-      "status": "available"
+      "status": "available",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com"
     }
   ]
 }

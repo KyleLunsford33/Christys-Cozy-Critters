@@ -3,6 +3,10 @@
 
   const IG_URL = "https://www.instagram.com/christyscozycritters/";
 
+  // Every critter is knit from a pattern by The Cozy Company. If a listing has no
+  // credit of its own, this one is shown so the designer is never left off.
+  const DEFAULT_CREDIT = { name: "The Cozy Company", url: "http://www.TheCozyCompanyNH.com" };
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -34,6 +38,31 @@
   function inquire(product) {
     // Carry the product name over to the Contact page.
     window.location.href = "contact.html?product=" + encodeURIComponent(product.name);
+  }
+
+  function productSeasons(product) {
+    if (Array.isArray(product.seasons) && product.seasons.length) return product.seasons;
+    if (product.category) return [product.category]; // older listings
+    return ["year-round"];
+  }
+
+  function createCredit(product) {
+    const wrap = document.createElement("p");
+    wrap.className = "product-credit";
+    const name = product.credit || DEFAULT_CREDIT.name;
+    const url = product.creditUrl || (product.credit ? "" : DEFAULT_CREDIT.url);
+    wrap.appendChild(document.createTextNode("Pattern design: "));
+    if (url) {
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = name;
+      wrap.appendChild(link);
+    } else {
+      wrap.appendChild(document.createTextNode(name));
+    }
+    return wrap;
   }
 
   function createCard(product) {
@@ -87,6 +116,7 @@
 
     body.appendChild(titleRow);
     body.appendChild(desc);
+    body.appendChild(createCredit(product));
     body.appendChild(btn);
 
     card.appendChild(media);
@@ -110,7 +140,9 @@
     grid.innerHTML = "";
     const list = activeCategory === "all"
       ? allProducts
-      : allProducts.filter(function (p) { return p.category === activeCategory; });
+      : allProducts.filter(function (p) {
+          return productSeasons(p).indexOf(activeCategory) !== -1;
+        });
 
     if (list.length === 0) {
       if (emptyEl) emptyEl.hidden = false;
@@ -120,10 +152,24 @@
     list.forEach(function (p) { grid.appendChild(createCard(p)); });
   }
 
+  function seasonsInUse() {
+    const used = {};
+    allProducts.forEach(function (p) {
+      productSeasons(p).forEach(function (s) { used[s] = true; });
+    });
+    return used;
+  }
+
   function renderFilters() {
     if (!filtersEl) return;
     filtersEl.innerHTML = "";
-    categories.forEach(function (cat) {
+    // Show a tab only when something is actually tagged with it, so the row stays
+    // short instead of listing every holiday of the year.
+    const used = seasonsInUse();
+    const visible = categories.filter(function (cat) {
+      return cat.id === "all" || used[cat.id];
+    });
+    visible.forEach(function (cat) {
       const chip = document.createElement("button");
       chip.type = "button";
       chip.className = "filter-chip";
@@ -164,9 +210,9 @@
       ? data.categories
       : [{ id: "all", label: "All" }];
 
-    // Preselect a category from ?category= if it's valid.
+    // Preselect a category from ?category= when something is tagged with it.
     const requested = getParam("category");
-    if (requested && categories.some(function (c) { return c.id === requested; })) {
+    if (requested && seasonsInUse()[requested]) {
       activeCategory = requested;
     }
 
