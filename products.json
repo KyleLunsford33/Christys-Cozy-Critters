@@ -1,24 +1,97 @@
 {
   "categories": [
-    { "id": "all", "label": "All" },
-    { "id": "year-round", "label": "Year-Round" },
-    { "id": "spring", "label": "Spring" },
-    { "id": "summer", "label": "Summer" },
-    { "id": "fall", "label": "Fall" },
-    { "id": "winter", "label": "Winter" },
-    { "id": "new-year", "label": "New Year" },
-    { "id": "lunar-new-year", "label": "Lunar New Year" },
-    { "id": "valentines", "label": "Valentine's Day" },
-    { "id": "st-patricks", "label": "St. Patrick's Day" },
-    { "id": "easter", "label": "Easter" },
-    { "id": "mothers-day", "label": "Mother's Day" },
-    { "id": "fathers-day", "label": "Father's Day" },
-    { "id": "fourth-of-july", "label": "Fourth of July" },
-    { "id": "halloween", "label": "Halloween" },
-    { "id": "thanksgiving", "label": "Thanksgiving" },
-    { "id": "hanukkah", "label": "Hanukkah" },
-    { "id": "christmas", "label": "Christmas" },
-    { "id": "kwanzaa", "label": "Kwanzaa" }
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "year-round",
+      "label": "Year-Round"
+    },
+    {
+      "id": "spring",
+      "label": "Spring"
+    },
+    {
+      "id": "summer",
+      "label": "Summer"
+    },
+    {
+      "id": "fall",
+      "label": "Fall"
+    },
+    {
+      "id": "winter",
+      "label": "Winter"
+    },
+    {
+      "id": "new-year",
+      "label": "New Year"
+    },
+    {
+      "id": "lunar-new-year",
+      "label": "Lunar New Year"
+    },
+    {
+      "id": "valentines",
+      "label": "Valentine's Day"
+    },
+    {
+      "id": "st-patricks",
+      "label": "St. Patrick's Day"
+    },
+    {
+      "id": "easter",
+      "label": "Easter"
+    },
+    {
+      "id": "mothers-day",
+      "label": "Mother's Day"
+    },
+    {
+      "id": "fathers-day",
+      "label": "Father's Day"
+    },
+    {
+      "id": "fourth-of-july",
+      "label": "Fourth of July"
+    },
+    {
+      "id": "halloween",
+      "label": "Halloween"
+    },
+    {
+      "id": "thanksgiving",
+      "label": "Thanksgiving"
+    },
+    {
+      "id": "hanukkah",
+      "label": "Hanukkah"
+    },
+    {
+      "id": "christmas",
+      "label": "Christmas"
+    },
+    {
+      "id": "kwanzaa",
+      "label": "Kwanzaa"
+    }
   ],
-  "products": []
+  "products": [
+    {
+      "id": "crazzy-pumkin-mt0u6kf7",
+      "name": "Crazzy Pumkin",
+      "seasons": [
+        "fall",
+        "halloween"
+      ],
+      "price": 25,
+      "description": "a little pumpkin to bring you joy",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com",
+      "image": "assets/images/uploads/1787188987482-ideas-for-stuffed-animals-im-obsessively-knitting-teddy-v0-myvy6mjrx7dc1.jpg.webp",
+      "status": "available",
+      "featured": false
+    }
+  ]
 }
