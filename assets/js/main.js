@@ -279,7 +279,9 @@
 
   // Only fetch products on pages that actually show them.
   if (grid || featuredGrid || categoryCards) {
-    fetch("products.json")
+    // The unique query string skips the browser and CDN caches. Without it a saved
+    // change can take several minutes to appear, which looks like the save failed.
+    fetch("products.json?v=" + Date.now(), { cache: "no-store" })
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);
         return res.json();
