@@ -77,21 +77,5 @@
       "label": "Kwanzaa"
     }
   ],
-  "products": [
-    {
-      "id": "crazzy-pumkin-mt0u6kf7",
-      "name": "Crazzy Pumkin",
-      "seasons": [
-        "fall",
-        "halloween"
-      ],
-      "price": 25,
-      "description": "a little pumpkin to bring you joy",
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com",
-      "image": "assets/images/uploads/1787188987482-ideas-for-stuffed-animals-im-obsessively-knitting-teddy-v0-myvy6mjrx7dc1.jpg.webp",
-      "status": "available",
-      "featured": false
-    }
-  ]
+  "products": []
 }
