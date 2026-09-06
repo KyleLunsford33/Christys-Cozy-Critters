@@ -135,6 +135,21 @@
       "image": "assets/images/uploads/1788720187999-img_2369.jpeg",
       "status": "available",
       "featured": true
+    },
+    {
+      "id": "the-cap-collectors-ghost-mtq65q6b",
+      "name": "The Cap Collectors Ghost",
+      "seasons": [
+        "fall",
+        "halloween"
+      ],
+      "price": 25,
+      "description": "The Cap Collector Ghost and accessories $25 each",
+      "credit": "Sabrina-Rose",
+      "creditUrl": "http://www.sabsstuffies.com",
+      "image": "assets/images/uploads/1788720723311-img_1767.jpeg",
+      "status": "available",
+      "featured": true
     }
   ]
 }
