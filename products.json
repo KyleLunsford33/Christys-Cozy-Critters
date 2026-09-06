@@ -92,6 +92,20 @@
       "image": "assets/images/uploads/1787189710605-ideas-for-stuffed-animals-im-obsessively-knitting-teddy-v0-myvy6mjrx7dc1.jpg.webp",
       "status": "available",
       "featured": false
+    },
+    {
+      "id": "sleeping-dragon-mtq4ynk9",
+      "name": "Sleeping Dragon",
+      "seasons": [
+        "year-round"
+      ],
+      "price": 30,
+      "description": "Sleeping Dragon is a perfect snuggle stuffie and great paired with a blanket",
+      "credit": "Jamie Jones",
+      "creditUrl": "http://www.TheCozyCompanyNH.com",
+      "image": "assets/images/uploads/1788718687893-img_2265.jpeg",
+      "status": "available",
+      "featured": true
     }
   ]
 }
