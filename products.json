@@ -1,27 +1,187 @@
 {
   "categories": [
-    { "id": "all", "label": "All" },
-    { "id": "year-round", "label": "Year-Round" },
-    { "id": "spring", "label": "Spring" },
-    { "id": "summer", "label": "Summer" },
-    { "id": "fall", "label": "Fall" },
-    { "id": "winter", "label": "Winter" },
-    { "id": "new-year", "label": "New Year" },
-    { "id": "lunar-new-year", "label": "Lunar New Year" },
-    { "id": "valentines", "label": "Valentine's Day" },
-    { "id": "st-patricks", "label": "St. Patrick's Day" },
-    { "id": "easter", "label": "Easter" },
-    { "id": "mothers-day", "label": "Mother's Day" },
-    { "id": "fathers-day", "label": "Father's Day" },
-    { "id": "fourth-of-july", "label": "Fourth of July" },
-    { "id": "halloween", "label": "Halloween" },
-    { "id": "thanksgiving", "label": "Thanksgiving" },
-    { "id": "hanukkah", "label": "Hanukkah" },
-    { "id": "christmas", "label": "Christmas" },
-    { "id": "kwanzaa", "label": "Kwanzaa" }
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "year-round",
+      "label": "Year-Round"
+    },
+    {
+      "id": "spring",
+      "label": "Spring"
+    },
+    {
+      "id": "summer",
+      "label": "Summer"
+    },
+    {
+      "id": "fall",
+      "label": "Fall"
+    },
+    {
+      "id": "winter",
+      "label": "Winter"
+    },
+    {
+      "id": "new-year",
+      "label": "New Year"
+    },
+    {
+      "id": "lunar-new-year",
+      "label": "Lunar New Year"
+    },
+    {
+      "id": "valentines",
+      "label": "Valentine's Day"
+    },
+    {
+      "id": "st-patricks",
+      "label": "St. Patrick's Day"
+    },
+    {
+      "id": "easter",
+      "label": "Easter"
+    },
+    {
+      "id": "mothers-day",
+      "label": "Mother's Day"
+    },
+    {
+      "id": "fathers-day",
+      "label": "Father's Day"
+    },
+    {
+      "id": "fourth-of-july",
+      "label": "Fourth of July"
+    },
+    {
+      "id": "halloween",
+      "label": "Halloween"
+    },
+    {
+      "id": "thanksgiving",
+      "label": "Thanksgiving"
+    },
+    {
+      "id": "hanukkah",
+      "label": "Hanukkah"
+    },
+    {
+      "id": "christmas",
+      "label": "Christmas"
+    },
+    {
+      "id": "kwanzaa",
+      "label": "Kwanzaa"
+    }
   ],
   "companies": [
-    { "id": "the-cozy-company", "name": "The Cozy Company", "url": "http://www.TheCozyCompanyNH.com" }
+    {
+      "id": "the-cozy-company",
+      "name": "The Cozy Company",
+      "url": "http://www.TheCozyCompanyNH.com"
+    },
+    {
+      "id": "sabrina-rose-benedict",
+      "name": "Sabrina-Rose Benedict",
+      "url": "https://sabstuffies.com"
+    },
+    {
+      "id": "jamie-jones",
+      "name": "Jamie Jones",
+      "url": "https://faithfullyknit.com"
+    },
+    {
+      "id": "sabrina-and-jamie",
+      "name": "Sabrina and Jamie",
+      "url": "http://www.sabstuffies.com"
+    },
+    {
+      "id": "sabrina-rose",
+      "name": "Sabrina-Rose",
+      "url": "http://www.sabsstuffies.com"
+    }
   ],
-  "products": []
+  "products": [
+    {
+      "id": "fun-bear-mt0um4jq",
+      "name": "Little Monster Friend",
+      "seasons": [
+        "fall",
+        "halloween"
+      ],
+      "price": 20,
+      "description": "Little Monster",
+      "credits": [
+        "sabrina-rose-benedict"
+      ],
+      "image": "assets/images/uploads/1788719276084-img_2118.jpeg",
+      "status": "available",
+      "featured": true
+    },
+    {
+      "id": "sleeping-dragon-mtq4ynk9",
+      "name": "Sleeping Dragon",
+      "seasons": [
+        "year-round"
+      ],
+      "price": 30,
+      "description": "Sleeping Dragon is a perfect snuggle stuffie and great paired with a blanket",
+      "credits": [
+        "jamie-jones"
+      ],
+      "image": "assets/images/uploads/1788718687893-img_2265.jpeg",
+      "status": "available",
+      "featured": true
+    },
+    {
+      "id": "knotty-halloween-crew-mtq5l4tf",
+      "name": "Knotty Halloween Crew",
+      "seasons": [
+        "fall",
+        "halloween"
+      ],
+      "price": 30,
+      "description": "The Knotty Halloween Crew \n$30each",
+      "credits": [
+        "the-cozy-company"
+      ],
+      "image": "assets/images/uploads/1788719722923-img_2069.jpeg",
+      "status": "available",
+      "featured": true
+    },
+    {
+      "id": "sleeping-dragon-mtq5th1i",
+      "name": "Sleeping Dragon on Bobble Blanket",
+      "seasons": [
+        "year-round"
+      ],
+      "price": 80,
+      "description": "Sleeping Dragon on Mini Bobble Blanket",
+      "credits": [
+        "sabrina-and-jamie"
+      ],
+      "image": "assets/images/uploads/1788720187999-img_2369.jpeg",
+      "status": "available",
+      "featured": true
+    },
+    {
+      "id": "the-cap-collectors-ghost-mtq65q6b",
+      "name": "The Cap Collectors Ghost",
+      "seasons": [
+        "fall",
+        "halloween"
+      ],
+      "price": 25,
+      "description": "The Cap Collector Ghost and accessories $25 each",
+      "credits": [
+        "sabrina-rose"
+      ],
+      "image": "assets/images/uploads/1788720723311-img_1767.jpeg",
+      "status": "available",
+      "featured": true
+    }
+  ]
 }
