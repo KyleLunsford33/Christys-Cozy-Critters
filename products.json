@@ -121,6 +121,20 @@
       "image": "assets/images/uploads/1788719722923-img_2069.jpeg",
       "status": "available",
       "featured": true
+    },
+    {
+      "id": "sleeping-dragon-mtq5th1i",
+      "name": "Sleeping Dragon",
+      "seasons": [
+        "year-round"
+      ],
+      "price": 30,
+      "description": "Sleeping Dragon on Mini Bobble Blanket",
+      "credit": "Sabrina and Jamie",
+      "creditUrl": "http://www.sabstuffies.com",
+      "image": "assets/images/uploads/1788720187999-img_2369.jpeg",
+      "status": "available",
+      "featured": true
     }
   ]
 }
