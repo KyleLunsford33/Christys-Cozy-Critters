@@ -80,18 +80,18 @@
   "products": [
     {
       "id": "fun-bear-mt0um4jq",
-      "name": "fun bear",
+      "name": "Little Monster Friend",
       "seasons": [
-        "winter",
-        "christmas"
+        "fall",
+        "halloween"
       ],
-      "price": 25,
-      "description": "cute bear to hug you",
-      "credit": "The Cozy Company",
-      "creditUrl": "http://www.TheCozyCompanyNH.com",
-      "image": "assets/images/uploads/1787189710605-ideas-for-stuffed-animals-im-obsessively-knitting-teddy-v0-myvy6mjrx7dc1.jpg.webp",
+      "price": 20,
+      "description": "Little Monster",
+      "credit": "Sabrina-Rose Benedict",
+      "creditUrl": "https://sabstuffies.com",
+      "image": "assets/images/uploads/1788719276084-img_2118.jpeg",
       "status": "available",
-      "featured": false
+      "featured": true
     },
     {
       "id": "sleeping-dragon-mtq4ynk9",
