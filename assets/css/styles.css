@@ -203,8 +203,6 @@ img { max-width: 100%; display: block; }
 .footer-brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; }
 .footer-brand img { border-radius: 50%; background: var(--cream); }
 .footer-tag { color: var(--tan); margin: 4px 0; }
-.footer-credit { color: var(--tan); font-size: .9rem; margin: 2px 0; }
-.footer-credit a { color: var(--white); font-weight: 600; text-decoration: underline; }
 .footer-ig { color: var(--pink-soft); font-weight: 700; }
 .footer-ig:hover { color: var(--white); }
 .footer-copy { color: rgba(251,246,239,.6); font-size: .88rem; margin: 8px 0 0; }
@@ -236,15 +234,16 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Credits page ---------- */
 .credit-page { max-width: 760px; }
-.credit-page h2 { font-family: var(--font-head); color: var(--brown); margin: 34px 0 10px; }
-.credit-page h2:first-child { margin-top: 0; }
-.credit-page p { color: var(--ink-soft); }
-.credit-page a { color: var(--orange-deep); font-weight: 600; }
-.credit-card {
-  background: var(--cream-2); border: 2px solid var(--tan); border-radius: var(--radius);
-  padding: 24px 26px; margin: 26px 0;
+.company-list { display: grid; gap: 16px; }
+.company-card {
+  background: var(--white); border: 1px solid var(--tan); border-radius: var(--radius);
+  padding: 22px 24px; box-shadow: var(--shadow-sm);
 }
-.credit-card h3 { font-family: var(--font-head); color: var(--brown); margin: 0 0 8px; }
+.company-card h2 { font-size: 1.35rem; margin: 0 0 6px; }
+.company-card h2 a { color: var(--orange-deep); }
+.company-url { margin: 0; color: var(--ink-soft); font-size: .95rem; word-break: break-all; }
+.company-card .edit-card-actions { display: flex; gap: 8px; margin-top: 14px; }
+.company-card .edit-card-actions .btn { width: auto; }
 
 /* ---------- Mini steps (home teaser) ---------- */
 .mini-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; }
@@ -280,6 +279,7 @@ img { max-width: 100%; display: block; }
 
   .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 30px; }
   .about-art { order: -1; }
+  .ccc-credit-row { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -308,6 +308,16 @@ img { max-width: 100%; display: block; }
   max-height: 90vh;
   overflow-y: auto;
 }
+.ccc-modal-card-wide { max-width: 560px; }
+.ccc-credit-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
+.ccc-credit-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; align-items: center; }
+.ccc-credit-row input {
+  font-family: var(--font-body); font-size: 1rem; padding: 12px 14px; border-radius: 12px;
+  border: 2px solid var(--tan); background: var(--cream); color: var(--ink); width: 100%;
+}
+.ccc-credit-row input:focus { border-color: var(--orange-deep); background: var(--white); outline: none; }
+.ccc-credit-remove { width: auto; padding: 8px 14px; font-size: .9rem; }
+#ccc-add-credit { width: auto; align-self: flex-start; }
 .ccc-modal-card h2 { margin: 0 0 16px; font-family: var(--font-head); color: var(--brown); }
 .ccc-modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; }
 .ccc-modal-actions .btn { width: auto; }

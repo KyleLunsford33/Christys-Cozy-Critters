@@ -20,5 +20,8 @@
     { "id": "christmas", "label": "Christmas" },
     { "id": "kwanzaa", "label": "Kwanzaa" }
   ],
+  "companies": [
+    { "id": "the-cozy-company", "name": "The Cozy Company", "url": "http://www.TheCozyCompanyNH.com" }
+  ],
   "products": []
 }

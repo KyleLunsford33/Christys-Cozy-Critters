@@ -117,11 +117,12 @@ app.post("/api/logout", function (req, res) {
 app.get("/api/products", requireAuth, async function (req, res) {
   try {
     const file = await github.getFile(PRODUCTS_PATH);
-    if (!file) return res.json({ categories: [], products: [], sha: null });
+    if (!file) return res.json({ categories: [], products: [], companies: [], sha: null });
     const data = JSON.parse(file.content);
     res.json({
       categories: data.categories || [],
       products: data.products || [],
+      companies: data.companies || [],
       sha: file.sha,
     });
   } catch (e) {
@@ -140,6 +141,7 @@ app.put("/api/products", requireAuth, async function (req, res) {
     const payload = {
       categories: body.categories,
       products: body.products,
+      companies: Array.isArray(body.companies) ? body.companies : [],
     };
     const json = JSON.stringify(payload, null, 2) + "\n";
     await github.putFile(

@@ -6,6 +6,7 @@
   // Every critter is knit from a pattern by The Cozy Company. If a listing has no
   // credit of its own, this one is shown so the designer is never left off.
   const DEFAULT_CREDIT = { name: "The Cozy Company", url: "http://www.TheCozyCompanyNH.com" };
+  let companies = [];
 
   // Icon and blurb for each season/holiday. The home page cards are built from the
   // same category list the shop uses, so the two pages can't drift apart.
@@ -69,22 +70,48 @@
     return ["year-round"];
   }
 
+  function findCompany(id) {
+    return companies.find(function (c) { return c.id === id; });
+  }
+
+  function resolveCredits(product) {
+    if (Array.isArray(product.credits) && product.credits.length) {
+      const resolved = product.credits.map(findCompany).filter(Boolean);
+      if (resolved.length) return resolved;
+    }
+    if (product.credit) {
+      return [{ name: product.credit, url: product.creditUrl || "" }];
+    }
+    return [DEFAULT_CREDIT];
+  }
+
+  function appendCreditName(parent, credit) {
+    if (credit.url) {
+      const link = document.createElement("a");
+      link.href = credit.url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = credit.name;
+      parent.appendChild(link);
+    } else {
+      parent.appendChild(document.createTextNode(credit.name));
+    }
+  }
+
   function createCredit(product) {
     const wrap = document.createElement("p");
     wrap.className = "product-credit";
-    const name = product.credit || DEFAULT_CREDIT.name;
-    const url = product.creditUrl || (product.credit ? "" : DEFAULT_CREDIT.url);
     wrap.appendChild(document.createTextNode("Pattern design: "));
-    if (url) {
-      const link = document.createElement("a");
-      link.href = url;
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.textContent = name;
-      wrap.appendChild(link);
-    } else {
-      wrap.appendChild(document.createTextNode(name));
-    }
+    const list = resolveCredits(product);
+    list.forEach(function (credit, i) {
+      if (i > 0) {
+        const sep = i === list.length - 1
+          ? (list.length === 2 ? " and " : ", and ")
+          : ", ";
+        wrap.appendChild(document.createTextNode(sep));
+      }
+      appendCreditName(wrap, credit);
+    });
     return wrap;
   }
 
@@ -153,6 +180,7 @@
   const emptyEl = document.getElementById("shop-empty");
   const featuredGrid = document.getElementById("featured-grid");
   const categoryCards = document.getElementById("category-cards");
+  const companyList = document.getElementById("company-list");
 
   let allProducts = [];
   let categories = [];
@@ -249,11 +277,45 @@
     return new URLSearchParams(window.location.search).get(name);
   }
 
+  function renderCompanyList() {
+    if (!companyList) return;
+    if (window.__cccEditActive) return;
+    companyList.innerHTML = "";
+    if (companies.length === 0) {
+      companyList.innerHTML = '<p class="shop-empty">No companies listed yet.</p>';
+      return;
+    }
+    companies.forEach(function (c) {
+      const card = document.createElement("article");
+      card.className = "company-card";
+      const title = document.createElement("h2");
+      if (c.url) {
+        const link = document.createElement("a");
+        link.href = c.url;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = c.name;
+        title.appendChild(link);
+      } else {
+        title.textContent = c.name;
+      }
+      card.appendChild(title);
+      if (c.url) {
+        const url = document.createElement("p");
+        url.className = "company-url";
+        url.textContent = c.url;
+        card.appendChild(url);
+      }
+      companyList.appendChild(card);
+    });
+  }
+
   function initShop(data) {
     allProducts = Array.isArray(data.products) ? data.products : [];
     categories = Array.isArray(data.categories) && data.categories.length
       ? data.categories
       : [{ id: "all", label: "All" }];
+    companies = Array.isArray(data.companies) ? data.companies : [];
 
     // Preselect a category from ?category= if it's one we know about.
     const requested = getParam("category");
@@ -265,20 +327,21 @@
     renderGrid();
     renderCategoryCards();
     renderFeatured();
+    renderCompanyList();
   }
 
   function showLoadError() {
-    const target = grid || featuredGrid;
+    const target = grid || featuredGrid || companyList;
     if (target) {
       target.innerHTML =
-        '<p class="shop-empty">We couldn\'t load the shop right now. ' +
+        '<p class="shop-empty">We couldn\'t load this page right now. ' +
         'Please <a href="' + IG_URL + '" target="_blank" rel="noopener">visit Instagram</a> ' +
         'or use the <a href="contact.html">contact page</a>.</p>';
     }
   }
 
-  // Only fetch products on pages that actually show them.
-  if (grid || featuredGrid || categoryCards) {
+  // Only fetch catalog data on pages that actually show it.
+  if (grid || featuredGrid || categoryCards || companyList) {
     // The unique query string skips the browser and CDN caches. Without it a saved
     // change can take several minutes to appear, which looks like the save failed.
     fetch("products.json?v=" + Date.now(), { cache: "no-store" })
