@@ -106,6 +106,21 @@
       "image": "assets/images/uploads/1788718687893-img_2265.jpeg",
       "status": "available",
       "featured": true
+    },
+    {
+      "id": "knotty-halloween-crew-mtq5l4tf",
+      "name": "Knotty Halloween Crew",
+      "seasons": [
+        "fall",
+        "halloween"
+      ],
+      "price": 30,
+      "description": "The Knotty Halloween Crew \n$30each",
+      "credit": "The Cozy Company",
+      "creditUrl": "http://www.TheCozyCompanyNH.com",
+      "image": "assets/images/uploads/1788719722923-img_2069.jpeg",
+      "status": "available",
+      "featured": true
     }
   ]
 }
