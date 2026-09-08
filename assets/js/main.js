@@ -74,15 +74,43 @@
     return companies.find(function (c) { return c.id === id; });
   }
 
+  function nameFromCompanyId(id) {
+    return String(id || "").split("-").filter(Boolean).map(function (part) {
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    }).join(" ") || "Unknown";
+  }
+
+  function resolveCompany(id) {
+    return findCompany(id) || { name: nameFromCompanyId(id), url: "" };
+  }
+
   function resolveCredits(product) {
     if (Array.isArray(product.credits) && product.credits.length) {
-      const resolved = product.credits.map(findCompany).filter(Boolean);
-      if (resolved.length) return resolved;
+      return product.credits.map(resolveCompany);
     }
     if (product.credit) {
       return [{ name: product.credit, url: product.creditUrl || "" }];
     }
     return [DEFAULT_CREDIT];
+  }
+
+  function companiesForCreditsPage() {
+    if (companies.length) return companies;
+    const seen = {};
+    const derived = [];
+    allProducts.forEach(function (p) {
+      if (Array.isArray(p.credits)) {
+        p.credits.forEach(function (id) {
+          if (!id || seen[id]) return;
+          seen[id] = true;
+          derived.push(resolveCompany(id));
+        });
+      } else if (p.credit && !seen[p.credit]) {
+        seen[p.credit] = true;
+        derived.push({ name: p.credit, url: p.creditUrl || "" });
+      }
+    });
+    return derived;
   }
 
   function appendCreditName(parent, credit) {
@@ -281,11 +309,12 @@
     if (!companyList) return;
     if (window.__cccEditActive) return;
     companyList.innerHTML = "";
-    if (companies.length === 0) {
+    const list = companiesForCreditsPage();
+    if (list.length === 0) {
       companyList.innerHTML = '<p class="shop-empty">No companies listed yet.</p>';
       return;
     }
-    companies.forEach(function (c) {
+    list.forEach(function (c) {
       const card = document.createElement("article");
       card.className = "company-card";
       const title = document.createElement("h2");

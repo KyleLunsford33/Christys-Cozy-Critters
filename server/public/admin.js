@@ -26,6 +26,7 @@
 
   let categories = [];
   let products = [];
+  let companies = [];
   let editingIndex = -1; // -1 means adding a new critter
   let currentImage = ""; // image path for the item being edited
   let dirty = false;
@@ -117,6 +118,7 @@
       const data = await api("/api/products");
       categories = data.categories || [];
       products = data.products || [];
+      companies = data.companies || [];
       setDirty(false);
       renderCategoryOptions();
       renderList();
@@ -312,7 +314,7 @@
       await api("/api/products", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ categories: categories, products: products }),
+        body: JSON.stringify({ categories: categories, products: products, companies: companies }),
       });
       setDirty(false);
       saveHint.textContent = "Saved! Your website will update in about a minute.";

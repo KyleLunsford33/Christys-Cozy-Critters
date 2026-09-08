@@ -138,10 +138,19 @@ app.put("/api/products", requireAuth, async function (req, res) {
     }
     // Re-read to get the latest sha, avoiding stale overwrites.
     const current = await github.getFile(PRODUCTS_PATH);
+    let existingCompanies = [];
+    if (current && current.content) {
+      try {
+        existingCompanies = JSON.parse(current.content).companies || [];
+      } catch (e) {
+        existingCompanies = [];
+      }
+    }
     const payload = {
       categories: body.categories,
       products: body.products,
-      companies: Array.isArray(body.companies) ? body.companies : [],
+      // Older admin saves omit companies — keep the list already in the file.
+      companies: Array.isArray(body.companies) ? body.companies : existingCompanies,
     };
     const json = JSON.stringify(payload, null, 2) + "\n";
     await github.putFile(
