@@ -79,7 +79,7 @@ img { max-width: 100%; display: block; }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--brown); font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; }
 .brand:hover { text-decoration: none; }
-.brand img { border-radius: 50%; }
+.brand img { border-radius: 50%; width: 48px; height: 48px; object-fit: cover; }
 
 .nav-menu { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; align-items: center; }
 .nav-menu a { color: var(--ink-soft); font-family: var(--font-head); font-weight: 500; }
@@ -102,7 +102,7 @@ img { max-width: 100%; display: block; }
 .hero-note { font-size: .95rem; color: var(--ink-soft); }
 
 .hero-art { position: relative; display: flex; align-items: center; justify-content: center; min-height: 300px; }
-.hero-logo { width: min(320px, 80%); filter: drop-shadow(var(--shadow-md)); position: relative; z-index: 2; animation: float 6s ease-in-out infinite; }
+.hero-logo { width: min(320px, 80%); border-radius: 50%; filter: drop-shadow(var(--shadow-md)); position: relative; z-index: 2; animation: float 6s ease-in-out infinite; }
 .blob { position: absolute; border-radius: 50%; filter: blur(6px); opacity: .55; z-index: 1; }
 .blob-1 { width: 220px; height: 220px; background: var(--tan); top: 10%; left: 8%; }
 .blob-2 { width: 180px; height: 180px; background: var(--pink-soft); bottom: 6%; right: 10%; opacity: .4; }
@@ -158,7 +158,7 @@ img { max-width: 100%; display: block; }
 /* ---------- About ---------- */
 .about-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: center; }
 .about-art { display: flex; justify-content: center; }
-.about-art img { width: min(280px, 70%); filter: drop-shadow(var(--shadow-md)); }
+.about-art img { width: min(280px, 70%); border-radius: 50%; filter: drop-shadow(var(--shadow-md)); }
 .about-copy p { color: var(--ink-soft); font-size: 1.05rem; }
 .about-points { list-style: none; padding: 0; margin: 18px 0 24px; display: grid; gap: 10px; }
 .about-points li { position: relative; padding-left: 30px; font-weight: 600; color: var(--brown-soft); }
@@ -201,7 +201,7 @@ img { max-width: 100%; display: block; }
 .site-footer { background: var(--brown); color: var(--cream); padding: 46px 0; text-align: center; }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .footer-brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; }
-.footer-brand img { border-radius: 50%; background: var(--cream); }
+.footer-brand img { border-radius: 50%; width: 40px; height: 40px; object-fit: cover; background: var(--cream); }
 .footer-tag { color: var(--tan); margin: 4px 0; }
 .footer-ig { color: var(--pink-soft); font-weight: 700; }
 .footer-ig:hover { color: var(--white); }
