@@ -240,8 +240,11 @@ img { max-width: 100%; display: block; }
   padding: 22px 24px; box-shadow: var(--shadow-sm);
 }
 .company-card h2 { font-size: 1.35rem; margin: 0 0 6px; }
-.company-card h2 a { color: var(--orange-deep); }
-.company-url { margin: 0; color: var(--ink-soft); font-size: .95rem; word-break: break-all; }
+.company-card h2 a { color: var(--orange-deep); text-decoration: underline; }
+.company-card h2 a:hover { color: var(--orange); }
+.company-url { margin: 0; font-size: .95rem; word-break: break-all; }
+.company-url a { color: var(--orange-deep); text-decoration: underline; }
+.company-url a:hover { color: var(--orange); }
 .company-card .edit-card-actions { display: flex; gap: 8px; margin-top: 14px; }
 .company-card .edit-card-actions .btn { width: auto; }
 

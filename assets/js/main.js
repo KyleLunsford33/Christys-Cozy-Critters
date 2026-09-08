@@ -94,29 +94,38 @@
     return [DEFAULT_CREDIT];
   }
 
+  function companyHref(url) {
+    const u = String(url || "").trim();
+    if (!u) return "";
+    if (/^https?:\/\//i.test(u)) return u;
+    return "https://" + u;
+  }
+
   function companiesForCreditsPage() {
-    if (companies.length) return companies;
     const seen = {};
-    const derived = [];
+    const list = [];
+    function add(company) {
+      if (!company || !company.name) return;
+      const key = company.id || String(company.name).trim().toLowerCase();
+      if (!key || seen[key]) return;
+      seen[key] = true;
+      list.push(company);
+    }
+    companies.forEach(add);
     allProducts.forEach(function (p) {
       if (Array.isArray(p.credits)) {
-        p.credits.forEach(function (id) {
-          if (!id || seen[id]) return;
-          seen[id] = true;
-          derived.push(resolveCompany(id));
-        });
-      } else if (p.credit && !seen[p.credit]) {
-        seen[p.credit] = true;
-        derived.push({ name: p.credit, url: p.creditUrl || "" });
+        p.credits.forEach(function (id) { add(resolveCompany(id)); });
+      } else if (p.credit) {
+        add({ name: p.credit, url: p.creditUrl || "" });
       }
     });
-    return derived;
+    return list;
   }
 
   function appendCreditName(parent, credit) {
     if (credit.url) {
       const link = document.createElement("a");
-      link.href = credit.url;
+      link.href = companyHref(credit.url);
       link.target = "_blank";
       link.rel = "noopener";
       link.textContent = credit.name;
@@ -315,12 +324,13 @@
       return;
     }
     list.forEach(function (c) {
+      const href = companyHref(c.url);
       const card = document.createElement("article");
       card.className = "company-card";
       const title = document.createElement("h2");
-      if (c.url) {
+      if (href) {
         const link = document.createElement("a");
-        link.href = c.url;
+        link.href = href;
         link.target = "_blank";
         link.rel = "noopener";
         link.textContent = c.name;
@@ -329,10 +339,15 @@
         title.textContent = c.name;
       }
       card.appendChild(title);
-      if (c.url) {
+      if (href) {
         const url = document.createElement("p");
         url.className = "company-url";
-        url.textContent = c.url;
+        const urlLink = document.createElement("a");
+        urlLink.href = href;
+        urlLink.target = "_blank";
+        urlLink.rel = "noopener";
+        urlLink.textContent = c.url;
+        url.appendChild(urlLink);
         card.appendChild(url);
       }
       companyList.appendChild(card);
