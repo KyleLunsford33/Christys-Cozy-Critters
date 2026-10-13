@@ -77,33 +77,6 @@
       "label": "Kwanzaa"
     }
   ],
-  "companies": [
-    {
-      "id": "the-cozy-company",
-      "name": "The Cozy Company",
-      "url": "http://www.TheCozyCompanyNH.com"
-    },
-    {
-      "id": "sabrina-rose-benedict",
-      "name": "Sabrina-Rose Benedict",
-      "url": "https://sabstuffies.com"
-    },
-    {
-      "id": "jamie-jones",
-      "name": "Jamie Jones",
-      "url": "https://faithfullyknit.com"
-    },
-    {
-      "id": "sabrina-and-jamie",
-      "name": "Sabrina and Jamie",
-      "url": "http://www.sabstuffies.com"
-    },
-    {
-      "id": "sabrina-rose",
-      "name": "Sabrina-Rose",
-      "url": "http://www.sabsstuffies.com"
-    }
-  ],
   "products": [
     {
       "id": "fun-bear-mt0um4jq",
