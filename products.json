@@ -155,6 +155,22 @@
       "image": "assets/images/uploads/1788720723311-img_1767.jpeg",
       "status": "available",
       "featured": true
+    },
+    {
+      "id": "cleo-the-cat-removeable-pumpkin-outfit-mv762pju",
+      "name": "Cleo the Cat & Removeable Pumpkin Outfit",
+      "seasons": [
+        "fall",
+        "halloween"
+      ],
+      "price": null,
+      "description": "• Cat Body: Soft, textured black yarn with embroidered green eyes, a pink nose, and white whiskers.\n• Pumpkin Outfit: A detachable orange jack-o'-lantern body suit with a black embroidered face.\n• Hat & Stem: A matching orange plush hat topped with a textured green pumpkin stem.",
+      "credits": [
+        "sabrina-rose-benedict-sabsstuffies"
+      ],
+      "image": "assets/images/uploads/1791925308820-img_2575.jpeg",
+      "status": "available",
+      "featured": true
     }
   ]
 }
