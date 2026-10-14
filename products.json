@@ -171,6 +171,22 @@
       "image": "assets/images/uploads/1791925308820-img_2575.jpeg",
       "status": "available",
       "featured": true
+    },
+    {
+      "id": "girl-scarecrow-plushie-mv7kypiq",
+      "name": "Girl Scarecrow Plushie",
+      "seasons": [
+        "fall",
+        "halloween"
+      ],
+      "price": null,
+      "description": "Girl Scarecrow Plushie",
+      "credits": [
+        "perfectly-imperfect-creations"
+      ],
+      "image": "assets/images/uploads/1791950334007-img_2779.jpeg",
+      "status": "available",
+      "featured": true
     }
   ]
 }
