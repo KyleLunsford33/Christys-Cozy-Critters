@@ -187,6 +187,22 @@
       "image": "assets/images/uploads/1791950753524-img_2779.jpeg",
       "status": "available",
       "featured": true
+    },
+    {
+      "id": "wiggles-the-caterpillar-mv8ckae1",
+      "name": "Wiggles the Caterpillar",
+      "seasons": [
+        "year-round",
+        "fall"
+      ],
+      "price": null,
+      "description": "Wiggles the Caterpillar",
+      "credits": [
+        "chunky-knit-corner"
+      ],
+      "image": "assets/images/uploads/1791996578777-img_2819.jpeg",
+      "status": "available",
+      "featured": true
     }
   ]
 }
